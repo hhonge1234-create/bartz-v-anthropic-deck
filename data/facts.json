@@ -1,0 +1,78 @@
+{
+  "_sources": {
+    "FU": "Bartz v. Anthropic PBC, Order on Fair Use, Dkt. 231 (N.D. Cal. June 23, 2025)",
+    "FA": "Bartz v. Anthropic PBC, Order Granting Final Approval of Class Action Settlement, Dkt. 680 (N.D. Cal. July 20, 2026)",
+    "LEE": "이주연, 「대규모 언어모델 훈련 목적의 저작물 이용과 공정이용 문제」, 법학논총 42(4), 2025",
+    "BL": "Bloomberg Law 보도 (집단 인증일 2025.7.17., 예비승인 2025.9.25.)"
+  },
+  "pirated": {
+    "books3": {"value": 196640, "src": "FU p.2-3"},
+    "libgen": {"value": 5000000, "atLeast": true, "src": "FU p.3"},
+    "pilimi": {"value": 2000000, "atLeast": true, "src": "FU p.3"},
+    "total_label": {"value": "700만 권 이상", "src": "FU p.3 (over seven million)"}
+  },
+  "anthropic": {
+    "founded": {"value": "2021-01", "src": "FU p.1"},
+    "claude_release": {"value": "2023-03", "src": "FU p.2"},
+    "annual_revenue_label": {"value": "10억 달러 이상", "src": "FU p.2"}
+  },
+  "plaintiffs": {
+    "authors": {"value": 3, "src": "FU p.2"},
+    "entities": {"value": 2, "src": "FU p.2"},
+    "works": {"value": 9, "src": "FU p.2"}
+  },
+  "settlement": {
+    "fund": {"value": 1500000000, "src": "FA p.4"},
+    "works_list": {"value": 482460, "src": "FA p.4, p.10"},
+    "per_work_approx": {"value": 3000, "src": "FA p.4"},
+    "statutory_innocent_min": {"value": 200, "src": "FA p.17"},
+    "statutory_ordinary_min": {"value": 750, "src": "FA p.4"},
+    "statutory_max_notice": {"value": 150000, "src": "FA p.8 (notice: $200 to $150,000 per work)"},
+    "release_cutoff": {"value": "2025-08-25", "src": "FA p.7"}
+  },
+  "notice": {
+    "potential_members": {"value": 594945, "src": "FA p.2"},
+    "delivered_members": {"value": 506194, "src": "FA p.2"},
+    "delivered_share_works": {"value": 99.5, "src": "FA p.2"}
+  },
+  "claims": {
+    "claimed_works": {"value": 440490, "src": "FA p.4"},
+    "claim_rate": {"value": 91.3, "src": "FA p.4 (as of 2026-04-16)"},
+    "optouts": {"value": 350, "src": "FA p.6"},
+    "optout_works": {"value": 1802, "src": "FA p.6"},
+    "objections": {"value": 54, "src": "FA p.6"}
+  },
+  "fees": {
+    "request_initial": {"value": 300000000, "pct": 20, "src": "FA p.14 fn.7"},
+    "request_revised": {"value": 187500000, "pct": 12.5, "src": "FA p.14"},
+    "awarded": {"value": 101561111, "pct": 6.8, "src": "FA p.18, p.22"},
+    "lodestar": {"value": 27082963, "src": "FA p.15-16"},
+    "multiplier_requested": {"value": 6.92, "src": "FA p.15"},
+    "multiplier_awarded": {"value": 3.75, "src": "FA p.18"},
+    "expenses": {"value": 2635197.46, "src": "FA p.19, p.22"},
+    "cost_reserve": {"value": 18220000, "src": "FA p.22"},
+    "service_awards_total": {"value": 45000, "src": "FA p.21"},
+    "service_request_each": {"value": 50000, "src": "FA p.20"},
+    "service_award_each": {"value": 15000, "src": "FA p.21"}
+  },
+  "dates": {
+    "complaint": {"value": "2024-08", "src": "FU p.8"},
+    "fair_use_order": {"value": "2025-06-23", "src": "FU p.32"},
+    "meta_order": {"value": "2025-06-25", "src": "LEE 각주 14"},
+    "class_cert": {"value": "2025-07-17", "src": "BL"},
+    "term_sheet": {"value": "2025-08", "src": "FA p.5"},
+    "prelim_motion": {"value": "2025-09-05", "src": "LEE 각주 80"},
+    "prelim_approval": {"value": "2025-09-25", "src": "BL (논문은 9.23.으로 기재)"},
+    "prelim_opinion": {"value": "2025-10-17", "src": "FA p.2"},
+    "optout_deadline": {"value": "2026-02-09", "src": "FA p.13"},
+    "final_hearing": {"value": "2026-05-14", "src": "FA p.1"},
+    "final_approval": {"value": "2026-07-20", "src": "FA p.23"}
+  },
+  "meta_case": {
+    "authors": {"value": 13, "src": "LEE p.198"},
+    "books_min": {"value": 666, "src": "LEE p.198"}
+  },
+  "context": {
+    "us_ai_suits_label": {"value": "50여 건", "src": "LEE 각주 10 (2025년 9월 중순 기준)"}
+  }
+}
