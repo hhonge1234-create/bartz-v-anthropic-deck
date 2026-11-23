@@ -4,400 +4,478 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bartz v. Anthropic — AI 학습과 공정이용</title>
-<meta name="description" content="저작권분쟁사례연구 발표: Bartz v. Anthropic 판결과 15억 달러 합의, 공정이용 4요소와 잠재적 시장 문제">
+<meta name="description" content="Bartz v. Anthropic 사건 소개: 공정이용 판결과 15억 달러 합의">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Noto+Serif+KR:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Noto+Serif+KR:wght@600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/deck.css">
+<style>
+  .stack { display: flex; flex-direction: column; gap: 22px; margin-top: 44px; }
+  .rowbox { display: flex; align-items: center; gap: 28px; padding: 26px 34px; }
+  .rowbox .k { flex: none; width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-size: 30px; font-weight: 900; color: #fff; }
+  .rowbox .t { font-size: 36px; font-weight: 800; line-height: 1.3; }
+  .rowbox .t small { display: block; font-size: 25px; font-weight: 500; color: var(--ink-2); margin-top: 4px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 34px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 40px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 40px; }
+  .stat .n { font-size: 64px; font-weight: 900; line-height: 1.05; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .stat .l { font-size: 25px; color: var(--ink-2); margin-top: 12px; line-height: 1.4; }
+  .flow { display: flex; align-items: stretch; gap: 0; margin-top: 50px; }
+  .flow .box { flex: 1; text-align: center; }
+  .flow .box { padding: 28px 14px; }
+  .flow .box p { font-size: 24px; }
+  .flow .arr { flex: none; width: 70px; display: grid; place-items: center; font-size: 40px; color: var(--ink-3); }
+  .bk { background: var(--card); border: 2px solid var(--rule); border-left: 10px solid var(--ink-2); border-radius: 8px; padding: 10px 16px; font-size: 24px; font-style: italic; font-family: var(--serif); font-weight: 700; margin-top: 12px; position: relative; }
+  .bk.p { border-left-color: var(--red); }
+  .bk.p::after { content: "해적판에도"; position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-family: var(--sans); font-style: normal; font-size: 18px; font-weight: 800; color: var(--red); background: var(--red-t); padding: 3px 8px; border-radius: 6px; }
+  .author h3 { font-size: 32px; font-weight: 900; } .author .g { font-size: 24px; color: var(--ink-3); font-weight: 700; margin-top: 2px; }
+  .vlist { list-style: none; margin-top: 10px; }
+  .vlist li { display: flex; gap: 18px; align-items: center; font-size: 27px; line-height: 1.35; padding: 13px 0; border-bottom: 1.5px solid var(--rule); }
+  .vlist li .d { flex: none; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 900; font-size: 24px; }
+  .d.g { background: var(--green); } .d.r { background: var(--red); } .d.n { background: var(--ink-3); }
+  table.board { width: 100%; border-collapse: separate; border-spacing: 8px; margin-top: 30px; }
+  table.board th { font-size: 24px; color: var(--ink-3); font-weight: 800; text-align: center; padding: 6px; }
+  table.board th:first-child { text-align: left; }
+  table.board td { text-align: center; font-size: 40px; font-weight: 900; padding: 16px 10px; border-radius: 12px; background: var(--card); }
+  table.board td:first-child { text-align: left; font-size: 28px; background: none; padding-left: 0; }
+  table.board td.v { font-size: 28px; }
+  .claims td { font-size: 27px; padding: 16px 18px; border-bottom: 1.5px solid var(--rule); }
+  .claims { width: 100%; border-collapse: collapse; margin-top: 30px; }
+  .face { display: grid; grid-template-columns: 260px 1fr 1fr; gap: 14px 22px; margin-top: 34px; align-items: stretch; }
+  .face .h { font-size: 30px; font-weight: 900; padding: 16px 22px; border-radius: 14px; }
+  .face .r { font-size: 26px; font-weight: 800; color: var(--ink-3); padding: 18px 0; }
+  .face .c { font-size: 27px; line-height: 1.4; padding: 18px 22px; background: var(--card); border: 2px solid var(--rule); border-radius: 14px; }
+  .chip { font-size: 25px; font-weight: 800; padding: 16px 22px; border-radius: 14px; border: 2.5px solid; line-height: 1.35; }
+  .bracket { position: absolute; border: 4px solid var(--red); border-bottom: none; height: 26px; }
+  .bracket span { position: absolute; top: -44px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 26px; font-weight: 900; color: var(--red); }
+</style>
 </head>
 <body>
+<div id="help">← → 이동 · N 발표자 노트</div>
 <div id="viewport"><div id="stage">
+<div id="acts"></div>
 
 <!-- 1 표지 -->
-<section class="slide" data-part="" data-anim="cover">
-  <div class="cover">
-    <div class="eyebrow">저작권분쟁사례연구 · 사례 발표</div>
-    <h1>Bartz <span class="v">v.</span> Anthropic</h1>
-    <div class="sub">AI 학습은 공정이용인가 — 15억 달러 합의가 남긴 질문</div>
-    <div class="money"><span class="count" data-v="settlement.fund" data-fmt="usd0">$1,500,000,000</span></div>
-    <div class="meta">중심 자료: 이주연, 「대규모 언어모델 훈련 목적의 저작물 이용과 공정이용 문제」, 『법학논총』 42(4), 2025 · 판결문 원문</div>
+<section class="slide" data-anim="cover">
+  <div class="cover abs" style="left:100px;top:150px;width:1100px">
+    <div class="tag">지식재산분쟁사례연구 · 사례 발표</div>
+    <h1 style="margin-top:22px;white-space:nowrap;font-size:96px">Bartz <i>v.</i> Anthropic</h1>
+    <div class="line">AI 학습은 공정이용인가 — 그리고 15억 달러 합의</div>
+    <div class="num gold" style="font-size:80px;font-weight:900;margin-top:46px;letter-spacing:-.02em"><span class="count" data-v="settlement.fund" data-fmt="usd0"></span></div>
   </div>
-  <svg id="spines" width="420" height="300" viewBox="0 0 420 300"></svg>
+  <svg id="spines" class="abs" style="right:90px;bottom:90px" width="470" height="330" viewBox="0 0 470 330"></svg>
+  <aside class="notes">오늘 소개할 사건은 Bartz v. Anthropic입니다. 작가들이 AI 기업 앤트로픽을 상대로 낸 저작권 집단소송으로, 생성형 AI 학습이 공정이용인지에 대한 미국 법원의 첫 판단이 나왔고, 결국 저작권 집단소송 역사상 최대인 15억 달러 합의로 끝났습니다.</aside>
 </section>
 
-<!-- 2 훅 -->
-<section class="slide" data-part="Part 1 · 도입" data-anim="hook">
-  <h2>15억 달러의 질문</h2>
-  <div class="row mt40" style="gap:70px">
-    <div class="stat col" data-hide><div class="big gold"><span class="count" data-v="settlement.fund" data-fmt="usdB"></span></div><div class="lbl">합의금 — 저작권 집단소송 역사상 최대</div></div>
-    <div class="stat col" data-hide><div class="big"><span class="count" data-v="settlement.works_list" data-fmt="int"></span></div><div class="lbl">대상 작품 수(Works List)</div></div>
-    <div class="stat col" data-hide><div class="big">약 <span class="count" data-v="settlement.per_work_approx" data-fmt="usd0"></span></div><div class="lbl">작품당 배상 (비용·보수 공제 전)</div></div>
+<!-- 2 사건 한눈에 -->
+<section class="slide" data-act="0">
+  <h2>사건 한눈에</h2>
+  <div class="stack">
+    <div class="box green rowbox" data-step="1"><div class="k" style="background:var(--green)">1</div><div class="t">AI 학습에 책을 쓴 것 → 공정이용<small>법원: “매우 변형적(exceedingly transformative)”</small></div></div>
+    <div class="box red rowbox" data-step="2"><div class="k" style="background:var(--red)">2</div><div class="t">해적판을 내려받아 ‘도서관’에 쌓은 것 → 공정이용 아님<small>손해배상 재판으로 넘어감</small></div></div>
+    <div class="box gold rowbox" data-step="3"><div class="k" style="background:var(--gold)">3</div><div class="t">재판 대신 15억 달러 합의<small>2026년 7월 20일 최종승인, 사건 종결</small></div></div>
   </div>
-  <div class="mt40" style="font-size:40px;font-family:var(--serif);font-weight:700;line-height:1.5" data-hide>
-    이 돈은 <span id="strike" style="position:relative;display:inline-block">‘AI 학습’<svg width="100%" height="20" style="position:absolute;left:0;top:28px;overflow:visible"><line id="strikeLine" x1="0" y1="10" x2="0" y2="10" stroke="#b8322a" stroke-width="6" stroke-linecap="round"/></svg></span>의 대가가 아니다.
-    <span id="realReason" class="red" style="opacity:0">→ ‘해적판 취득’의 대가다.</span>
-  </div>
-  <p class="lead mt20" data-hide>왜 그런지가 오늘 발표의 질문이다. 무엇을 다퉜고 → 법원은 어떻게 판단했고 → 무엇이 부족했고 → 한국에는 어떤 의미가 있는가.</p>
-  <div class="src">출처: 합의 최종승인 판결(2026.7.20.) 4쪽, 17쪽 — 예비승인 의견을 인용해 "the largest copyright class action settlement in history"</div>
+  <div class="src">출처: 공정이용 판결(2025.6.23.) 9, 31–32쪽 · 합의 최종승인 판결(2026.7.20.)</div>
+  <aside class="notes">결론부터 말하면 세 줄입니다. 학습은 공정이용, 해적판 도서관은 공정이용이 아님, 그래서 재판 대신 합의. 이 세 줄이 어떻게 나왔는지를 따라가는 것이 오늘 발표입니다.</aside>
 </section>
 
-<!-- 3 왜 이 사건인가 -->
-<section class="slide" data-part="Part 1 · 도입" data-anim="reveal">
-  <h2>왜 이 사건인가</h2>
-  <div class="cards" style="grid-template-columns:repeat(3,1fr)">
-    <div class="card gold" data-hide><div class="num">첫</div><h3>LLM 학습과 공정이용에 대한 미국 법원의 첫 판단</h3><p>이전의 톰슨 로이터 v. 로스(2025.2)는 비생성형 법률 검색 AI 사건이라 LLM 판례로 볼 수 없다.</p></div>
-    <div class="card blue" data-hide><div class="num">2일</div><h3>같은 법원, 이틀 간격의 두 판결</h3><p>앤트로픽(6.23., 알섭 판사)과 메타(6.25., 차브리아 판사). 결론은 같고 논리는 달랐다.</p></div>
-    <div class="card green" data-hide><div class="num">§</div><h3>한국 제35조의5의 입법 모델</h3><p>한국 공정이용 조항은 미국 제107조를 모델로 했다. 이 판결의 논리와 한계가 국내 해석에 그대로 참고가 된다.</p></div>
+<!-- 3 왜 중요한가 -->
+<section class="slide" data-act="0">
+  <h2>왜 중요한가</h2>
+  <div class="grid3" style="margin-top:56px">
+    <div class="stat" data-in><div class="n gold">첫 판단</div><div class="l">생성형 AI 학습이 공정이용인지에 대한 미국 법원의 첫 판단</div></div>
+    <div class="stat" data-in><div class="n"><span class="count" data-v="settlement.fund" data-fmt="usdB"></span></div><div class="l">법원이 부른 이름: 저작권 집단소송 역사상 최대 합의</div></div>
+    <div class="stat" data-in><div class="n"><span data-v="context.us_ai_suits_label"></span></div><div class="l">2025년 9월 기준 미국 AI 기업을 상대로 한 저작권 소송</div></div>
   </div>
-  <p class="lead mt40" data-hide>2025년 9월 중순까지 미국 AI 기업을 상대로 제기된 저작권 소송만 <b class="gold"><span class="txt" data-v="context.us_ai_suits_label"></span></b>. 그중 처음으로 공정이용 판단이 나온 사건이다.</p>
-  <div class="src">출처: 이주연(2025) Ⅰ장, 각주 10·16</div>
+  <div class="box gold" style="margin-top:56px" data-step="1"><p style="margin:0;font-size:29px;color:var(--ink)"><b>한국과의 연결</b> — 한국 저작권법 제35조의5(공정한 이용)는 미국 제107조를 모델로 했고, AI 학습을 따로 면책하는 규정(TDM)이 없다. 이 판결은 한국에도 직접 참고가 된다.</p></div>
+  <div class="src">출처: 최종승인 판결 17쪽 · 이주연(2025) 183–187면, 각주 10</div>
+  <aside class="notes">이틀 뒤 같은 법원에서 메타 사건 판결도 나왔지만, 앤트로픽 사건이 먼저입니다. 한국과의 연결은 이 한 줄로만 짚고 넘어갑니다.</aside>
 </section>
 
-<!-- 4 공정이용 4요소 -->
-<section class="slide" data-part="Part 2 · 공정이용이란" data-anim="factors">
-  <h2>공정이용: 허락 없는 이용도 침해가 아닐 수 있다</h2>
-  <p class="lead">미국 저작권법 제107조. 비평·논평·보도·교육·학문·연구 등을 위한 공정이용은 침해가 아니다. 판단은 4요소를 <b>사안별로 종합</b>해서 한다.</p>
-  <div class="cards" style="grid-template-columns:repeat(4,1fr);margin-top:34px">
-    <div class="card" data-hide id="f1"><div class="num">1</div><h3>이용의 목적과 성격</h3><p>상업성 포함. 원작과 <b>다른 목적</b>인가 — 변형적 이용</p></div>
-    <div class="card" data-hide><div class="num">2</div><h3>저작물의 성격</h3><p>창작적·표현적인 작품일수록 보호가 강하다</p></div>
-    <div class="card" data-hide><div class="num">3</div><h3>이용된 양과 실질성</h3><p>목적에 비춰 <b>필요한 만큼</b>만 썼는가</p></div>
-    <div class="card" data-hide id="f4"><div class="num">4</div><h3>시장·가치에 미치는 영향</h3><p>원작의 현재·<b>잠재적 시장</b>을 대체하는가</p></div>
-  </div>
-  <div class="row mt30" style="gap:24px;align-items:center" data-hide>
-    <span class="badge gold">승부처</span>
-    <span style="font-size:22px">최근 미국 판례에서는 <b>제1요소(변형성)</b>와 <b>제4요소(시장 영향)</b>가 결론을 좌우한다. <i>Harper</i>(1985): 제4요소는 "가장 중요한 요소".</span>
-  </div>
-  <div class="src">출처: 17 U.S.C. §107 · 이주연(2025) Ⅲ-1 (191–194면)</div>
+<!-- 4 공정이용은 저울 -->
+<section class="slide" data-act="1" data-anim="scaleIntro">
+  <h2>공정이용은 저울이다<span class="sub">허락 없는 이용도 4가지 요소를 달아 ‘공정’ 쪽으로 기울면 침해가 아니다 (미국 저작권법 제107조)</span></h2>
+  <svg class="scale abs" style="left:350px;top:225px" width="900" height="520" viewBox="0 0 900 520"></svg>
+  <div class="abs pill gold" style="left:100px;top:775px" data-step="1">1번과 4번이 가장 무겁다 — 최근 판례에서 결론을 가르는 요소</div>
+  <div class="src">출처: 17 U.S.C. §107 · 이주연(2025) 191–194면</div>
+  <aside class="notes">판사는 네 가지 요소를 사안마다 종합해서 판단합니다. 저울에 비유하면 이해가 쉽습니다. 최근 판례에서는 1번(이용의 목적과 성격, 특히 변형적 이용)과 4번(시장에 미치는 영향)이 사실상 결론을 가릅니다.</aside>
 </section>
 
-<!-- 5 공정이용의 역사 -->
-<section class="slide" data-part="Part 2 · 공정이용이란" data-anim="history">
-  <h2>판례가 만든 원칙, 1841 → 2023</h2>
-  <p class="lead">기술이 바뀔 때마다 의회가 따로 입법하지 않아도 법원이 판단할 수 있게 만든 조항이다.</p>
-  <svg id="historySvg" width="1408" height="470" viewBox="0 0 1408 470" style="margin-top:20px"></svg>
-  <div class="src">출처: 이주연(2025) 191–193면 (Folsom v. Marsh, Lawrence v. Dana, H.R. Rep. 94-1476, Harper, Campbell, Warhol)</div>
-</section>
-
-<!-- 6 사건의 범위 -->
-<section class="slide" data-part="Part 3 · 사건의 범위" data-anim="stages">
-  <h2>이 사건이 다투는 것은 ‘입력’뿐이다</h2>
-  <p class="lead">LLM 저작권 문제는 세 단계로 나뉜다. 바츠 측은 <b>수집·훈련</b> 단계의 복제만 문제 삼았다.</p>
-  <svg id="stageSvg" width="1408" height="285" viewBox="0 0 1408 285" style="margin-top:18px"></svg>
-  <div class="row mt20" style="gap:18px" data-hide>
-    <div class="card" style="flex:1;padding:18px 20px"><p><b>① 인터넷 공개 자료 수집</b></p></div>
-    <div class="card" style="flex:1;padding:18px 20px"><p><b>② 저작권자 라이선스</b></p><p class="small">앤트로픽은 택하지 않음</p></div>
-    <div class="card red" style="flex:1;padding:18px 20px"><p><b>③ 불법 사이트 다운로드</b></p><p class="small">앤트로픽 선택</p></div>
-    <div class="card green" style="flex:1;padding:18px 20px"><p><b>④ 종이책 구매 후 스캔</b></p><p class="small">앤트로픽 선택</p></div>
+<!-- 5 4요소 -->
+<section class="slide" data-act="1">
+  <h2>공정이용 4요소</h2>
+  <div class="grid2">
+    <div class="box" data-step="1"><h3><span class="gold">①</span> 이용 목적·성격</h3><p>비영리·교육 목적, 새로운 표현이나 의미를 더한 ‘변형적 이용’일수록 유리</p></div>
+    <div class="box" data-step="2"><h3><span class="gold">②</span> 저작물의 성격</h3><p>사실 중심 저작물을 쓰는 편이 허구 작품보다 유리</p></div>
+    <div class="box" data-step="3"><h3><span class="gold">③</span> 이용한 분량·중요도</h3><p>적게 쓸수록 유리. 단, 저작물의 ‘핵심’이면 소량이라도 불리</p></div>
+    <div class="box" data-step="4"><h3><span class="gold">④</span> 시장에 미치는 영향</h3><p>원작의 시장과 이익을 해칠수록 불리</p></div>
   </div>
-  <div class="src">출처: 이주연(2025) Ⅱ장 (187–190면), 각주 23–24 · 학습 데이터를 구하는 네 가지 방법</div>
+  <div class="src">출처: 17 U.S.C. §107 · 설명 문안 참고: YouTube 고객센터 “Fair use on YouTube”</div>
+  <aside class="notes">④에서 비평이나 패러디 때문에 원작 수요가 줄어드는 것은 ‘대체’로 보지 않습니다(Campbell). ③은 보통 소량이 유리하지만, 이 사건에서는 책 전체를 복제하고도 유리하게 판단됐다는 점이 나중에 나옵니다.</aside>
 </section>
 
-<!-- 7 바츠의 청구 -->
-<section class="slide" data-part="Part 3 · 바츠의 청구" data-anim="reveal">
-  <h2>바츠 측이 소송에 내건 것</h2>
-  <div class="row mt30" style="gap:30px">
-    <div class="col">
-      <div class="card" data-hide><h3>원고</h3><p>작가 <b><span class="txt" data-v="plaintiffs.authors"></span>명</b>(안드레아 바츠·찰스 그레이버·커크 월리스 존슨) + 법인 <b><span class="txt" data-v="plaintiffs.entities"></span>곳</b>. 문제 된 작품 <b><span class="txt" data-v="plaintiffs.works"></span>편</b>.</p></div>
-      <div class="card mt20" data-hide><h3>제안한 집단 두 개</h3><p>⑴ 해적판으로 받은 책 (학습 여부 무관)<br>⑵ 구매·스캔해 학습에 쓴 책</p><p class="small mt10">→ 실제 인증된 것은 LibGen·PiLiMi 책뿐 (Part 6)</p></div>
+<!-- 6 AI 학습 3단계 -->
+<section class="slide" data-act="1">
+  <h2>AI 학습의 세 단계</h2>
+  <div style="position:relative;margin-top:110px">
+    <div class="bracket" style="left:0;width:780px;top:-30px" data-step="1"><span>이 사건의 범위</span></div>
+    <div class="flow" style="margin-top:0">
+      <div class="box gold"><h3>① 수집</h3><p>학습할 책과 글을 모은다</p></div>
+      <div class="arr">→</div>
+      <div class="box gold"><h3>② 학습</h3><p>모은 글로 모델을 가르친다</p></div>
+      <div class="arr">→</div>
+      <div class="box" id="outBox"><h3>③ 생성(출력)</h3><p>사용자에게 답을 낸다</p></div>
     </div>
-    <div class="col">
-      <table class="t" style="margin-top:0" data-hide>
-        <tr><th>청구 내용</th><th>주장 여부</th></tr>
-        <tr><td>복제권 침해 (§106(1))</td><td class="c-red">주장</td></tr>
-        <tr><td>2차적저작물작성권 (§106(2))</td><td class="c-gold">주장하지 않음 (명시)</td></tr>
-        <tr><td>Claude 출력물의 침해</td><td class="c-gold">주장하지 않음</td></tr>
-      </table>
-      <div class="card gold mt30" data-hide><h3>앤트로픽의 대응</h3><p>집단 인증보다 <b>먼저</b> 공정이용 약식판결을 구했다. 공정이용은 항변이라 입증책임은 앤트로픽에 있다.</p></div>
-    </div>
+    <div class="abs pill" style="right:40px;top:150px;color:var(--ink-3);background:rgba(120,125,140,.12)" data-step="1">이 사건에서 다투지 않음</div>
   </div>
-  <div class="src">출처: 공정이용 판결 2쪽, 8–9쪽, 17쪽 각주 4 · 이주연(2025) 각주 13</div>
+  <p class="body" style="margin-top:150px" data-step="1">그래서 이 사건은 “AI가 무엇을 내놓았나”가 아니라 <b>“책을 어떻게 구하고 어떻게 썼나”</b>의 사건이다.</p>
+  <div class="src">출처: 이주연(2025) Ⅱ장 187–190면 · 공정이용 판결 7, 11쪽</div>
+  <aside class="notes">LLM 저작권 문제는 수집, 학습, 생성의 세 단계로 나눠 볼 수 있습니다. 원고들은 출력물이 자기 작품을 베꼈다고 주장하지 않았기 때문에, 이 사건은 앞의 두 단계만 다룹니다.</aside>
 </section>
 
-<!-- 8 해적판 규모 -->
-<section class="slide" data-part="Part 4 · 사실관계" data-anim="pirate">
-  <h2>해적판 <span class="red"><span class="txt" data-v="pirated.total_label"></span></span></h2>
-  <div class="row mt20" style="gap:50px">
-    <div class="col" style="flex:1.35"><svg id="pirateSvg" width="820" height="520" viewBox="0 0 820 520"></svg></div>
-    <div class="col">
-      <blockquote class="q red" data-hide>“legal/practice/business slog”<span class="ko">책을 살 곳은 많았지만 법적·실무적·사업적 ‘수고’를 피하려 해적판을 택했다 — 판결문이 인용한 CEO 발언</span></blockquote>
-      <ul class="points" data-hide>
-        <li>Books3를 받은 공동창업자는 무단 복제물임을 <b>알고 있었다</b></li>
-        <li>이후 법적 이유로 소극적이 됐지만 <b>계속 보관</b></li>
-        <li>2024년부터 종이책 <b>수백만 권</b> 구매 → 스캔 → 원본 폐기</li>
-      </ul>
-    </div>
+<!-- 7 소송 용어 -->
+<section class="slide" data-act="1">
+  <h2>알아 둘 소송 용어 세 가지</h2>
+  <div class="grid3">
+    <div class="box" data-in><h3>약식판결</h3><p>핵심 사실에 다툼이 없을 때 정식 재판 없이 법원이 내리는 판단. 쟁점 일부만 따로 판단할 수도 있다.</p></div>
+    <div class="box" data-step="1"><h3>집단소송</h3><p>대표 원고가 같은 처지의 사람 전체를 대신해 내는 소송. 법원이 ‘집단’을 인증해야 한다.</p></div>
+    <div class="box" data-step="2"><h3>법정손해배상</h3><p>실제 손해를 증명하지 않아도 작품마다 법이 정한 범위에서 받는 배상. 이 사건 통지문 기준 작품당 $200~$150,000.</p></div>
   </div>
-  <div class="src">출처: 공정이용 판결 2–4쪽 (LibGen·PiLiMi는 "at least")</div>
+  <div class="src">출처: 이주연(2025) 각주 13 (Fed. R. Civ. P. 56) · 최종승인 판결 8쪽</div>
+  <aside class="notes">이 세 가지를 알면 뒤의 흐름이 쉽습니다. 공정이용 판단은 약식판결로 나왔고, 사건은 집단소송이었으며, 합의 규모는 작품 수 곱하기 법정손해배상의 위험에서 나왔습니다.</aside>
 </section>
 
-<!-- 9 영상: 책의 여정 -->
-<section class="slide" data-part="Part 4 · 사실관계" data-anim="video">
-  <h2 style="margin-top:6px">같은 책, 다른 판단</h2>
-  <video class="vid" src="assets/video/BookJourney.mp4" poster="assets/video/BookJourney.jpg" muted playsinline preload="auto"></video>
-  <div class="src">Manim 애니메이션 · 공정이용 판결(2025.6.23.) 기준 · 클릭하면 다시 재생</div>
-</section>
-
-<!-- 10 이용을 나눈다 -->
-<section class="slide" data-part="Part 5 · 알섭 판결" data-anim="split">
-  <h2>판단 기준 ①: 이용을 목적별로 나눈다</h2>
-  <svg id="splitSvg" width="1408" height="430" viewBox="0 0 1408 430" style="margin-top:24px"></svg>
-  <p class="lead" data-hide>근거: <i>Warhol v. Goldsmith</i>(2023). 이용자의 <b>주관적 의도</b>가 아니라 실제로 한 <b>객관적 행위</b>를 본다. 앤트로픽의 “결국 학습을 위한 것”이라는 주장은 받아들여지지 않았다.</p>
-  <div class="src">출처: 공정이용 판결 10–11쪽, 19–20쪽 · 이주연(2025) 각주 75</div>
-</section>
-
-<!-- 11 3×4 결론표 -->
-<section class="slide" data-part="Part 5 · 알섭 판결" data-anim="heatmap">
-  <h2>판단 기준 ②: 제107조 4요소</h2>
-  <table class="t" id="heat" style="font-size:21px">
-    <tr><th style="width:250px">이용</th><th>제1요소<br>목적·성격</th><th>제2요소<br>저작물 성격</th><th>제3요소<br>이용한 양</th><th>제4요소<br>시장 영향</th><th style="width:220px">결론</th></tr>
-    <tr><td>① 학습용 사본</td><td data-c="green">+ 매우 변형적</td><td data-c="red">− 표현적 작품</td><td data-c="green">+ 합리적 필요</td><td data-c="green">+ 대체 없음</td><td data-c="green">공정이용</td></tr>
-    <tr><td>② 구매본 스캔</td><td data-c="green">+ 형식 변환</td><td data-c="red">− 표현적 작품</td><td data-c="green">+ 잉여 복제 없음</td><td data-c="gold">· 중립</td><td data-c="green">공정이용</td></tr>
-    <tr><td>③ 해적판 도서관</td><td data-c="red">− 범용 도서관</td><td data-c="red">− 표현적 작품</td><td data-c="red">− 전부 복제</td><td data-c="red">− 1:1 대체</td><td data-c="red">침해 → 재판</td></tr>
-  </table>
-  <p class="lead mt30" data-hide>같은 책이라도 <b class="green">어디서 왔는지</b>와 <b class="green">어디에 쓰였는지</b>에 따라 결론이 갈렸다. 해적판 도서관은 4요소 <b class="red">모두</b> 불리.</p>
-  <div class="src">출처: 공정이용 판결 30–31쪽 · 이주연(2025) 195–197면 표 · 미국 저작권청 Fair Use Index</div>
-</section>
-
-<!-- 12 학습 = 변형적 -->
-<section class="slide" data-part="Part 5 · 알섭 판결" data-anim="reveal">
-  <h2>① 학습용 사본 — “본질적으로 변형적”</h2>
-  <blockquote class="q green mt30" data-hide>“…the purpose and character of using copyrighted works to train LLMs to generate new text was <mark>quintessentially transformative</mark>.”<span class="ko">새 텍스트를 생성하도록 LLM을 학습시키는 이용은 본질적으로 변형적이다.</span><span class="cite">공정이용 판결 13쪽</span></blockquote>
-  <div class="cards" style="grid-template-columns:repeat(3,1fr);margin-top:34px">
-    <div class="card" data-hide><h3>작가 지망생의 독서</h3><p>읽고 기억할 때마다 돈을 내라는 것은 “unthinkable”. 대가는 책을 처음 손에 넣을 때 낸다.</p></div>
-    <div class="card" data-hide><h3>합리적 필요</h3><p>LLM에는 막대한 텍스트가 필요하다. “합리적으로 필요한” 것은 “엄격히 필요한” 것과 다르다.</p></div>
-    <div class="card" data-hide><h3>경쟁 ≠ 대체</h3><p>아이들에게 글쓰기를 가르쳐 경쟁작이 늘어나는 것과 같다. 저작권법은 경쟁에서 작가를 보호하지 않는다.</p></div>
+<!-- 8 원고 -->
+<section class="slide" data-act="2">
+  <h2>원고: 작가 3명, 책 9권</h2>
+  <div class="grid3" style="margin-top:34px">
+    <div class="author" data-in><h3>안드레아 바츠</h3><div class="g">소설가</div>
+      <div class="bk p">The Lost Night</div><div class="bk p">The Herd</div><div class="bk">We Were Never Here</div><div class="bk">The Spare Room</div></div>
+    <div class="author" data-in><h3>찰스 그레이버</h3><div class="g">논픽션</div>
+      <div class="bk p">The Good Nurse</div><div class="bk p">The Breakthrough</div></div>
+    <div class="author" data-in><h3>커크 월리스 존슨</h3><div class="g">논픽션</div>
+      <div class="bk p">To Be A Friend Is Fatal</div><div class="bk p">The Feather Thief</div><div class="bk">The Fishermen and the Dragon</div></div>
   </div>
-  <div class="src">출처: 공정이용 판결 11–14쪽, 25–29쪽 · “among the most transformative many of us will see in our lifetimes”(30쪽)</div>
+  <p class="body" style="margin-top:34px" data-step="1">9권 모두 앤트로픽이 사서 스캔한 책에도 있었다 · <i>The Good Nurse</i>는 넷플릭스 영화 〈더 굿 너스〉(2022)의 원작</p>
+  <div class="src">출처: 공정이용 판결 2–4쪽(각주 1·2) · Netflix Tudum · 바츠·존슨의 법인(Andrea Bartz Inc., MJ + KJ Inc.)도 원고</div>
+  <aside class="notes">원고는 작가 세 명과, 바츠와 존슨이 작품 관리를 위해 세운 법인 두 곳입니다. 빨간 표시는 해적판 데이터셋에도 들어 있던 책입니다. 같은 작품이 해적판과 구매본 양쪽에 다 있었다는 점이 중요합니다. 집단 대리인은 Lieff Cabraser와 Susman Godfrey입니다.</aside>
 </section>
 
-<!-- 13 해적판 = 침해 -->
-<section class="slide" data-part="Part 5 · 알섭 판결" data-anim="reveal">
-  <h2>③ 해적판 도서관 — “해적질이 목적이었다”</h2>
-  <div class="row mt30" style="gap:44px">
-    <div class="col" style="flex:1.3">
-      <blockquote class="q red" data-hide>“There is no carveout, however, from the Copyright Act for AI companies.”<span class="ko">저작권법에 AI 기업을 위한 예외는 없다.</span><span class="cite">14쪽</span></blockquote>
-      <blockquote class="q red mt30" data-hide>“Here, piracy was the point.”<span class="ko">돈을 낼 수 있었던 도서관을, 돈을 내지 않고 만드는 것이 목적이었다.</span><span class="cite">21쪽</span></blockquote>
-    </div>
-    <div class="col">
-      <div class="card gold" data-hide><h3>부메랑이 된 변론</h3><p>앤트로픽 측 구두변론: 연구 목적이라며 아무 교과서나 가져가면 “학술 출판 시장이 무너진다.” 법원은 이 말을 그대로 인용했다.</p></div>
-      <ul class="points" data-hide style="margin-top:14px">
-        <li>나중에 같은 책을 사도 책임은 <b>사라지지 않음</b></li>
-        <li>악의는 공정이용 판단 근거가 아님 — 단 <b>고의성</b> 판단엔 영향</li>
-      </ul>
-    </div>
-  </div>
-  <div class="src">출처: 공정이용 판결 14쪽, 18–21쪽, 29–32쪽</div>
-</section>
-
-<!-- 14 타임라인 -->
-<section class="slide" data-part="Part 6 · 진행과정" data-anim="timeline">
-  <h2>2021 → 2026: 쟁점이 ‘학습’에서 ‘취득’으로</h2>
-  <svg id="tlSvg" width="1408" height="560" viewBox="0 0 1408 560" style="margin-top:14px"></svg>
-  <div class="src">출처: 공정이용 판결 · 최종승인 판결 · Bloomberg Law(집단 인증 2025.7.17., 예비승인 2025.9.25.) · 이주연(2025) 각주 80</div>
-</section>
-
-<!-- 15 노출액 vs 합의금 -->
-<section class="slide" data-part="Part 6 · 결말 · 데이터 분석" data-anim="reveal">
-  <h2>왜 합의했나: 작품 수 × 법정손해배상</h2>
-  <div class="row mt20" style="gap:40px;align-items:center">
-    <div class="col" style="flex:1.6"><img class="fig" src="assets/fig/exposure.svg" alt="법정손해배상 노출 범위와 합의금 비교" data-hide></div>
-    <div class="col">
-      <div class="card" data-hide><h3>산식</h3><p class="mono"><span class="txt" data-v="settlement.works_list" data-fmt="int"></span>개 작품 × 작품당 법정손해배상</p><p class="small mt10">통지문상 범위: 작품당 $200 ~ $150,000</p></div>
-      <div class="card gold mt20" data-hide><h3>읽는 법</h3><p>원고가 지면 0원, 고의 침해가 인정되면 앤트로픽은 수백억 달러. 합의금은 그 사이 <b>일반 침해 최저액의 4배</b> 수준이다.</p></div>
-    </div>
-  </div>
-  <div class="src">단순 산술(작품 수 × 통지문상 법정손해배상 범위), 판결문이 추산한 액수 아님 · 수치 출처: 최종승인 판결 4, 8, 17쪽 · 그래프: matplotlib</div>
-</section>
-
-<!-- 16 15억 달러는 어디로 -->
-<section class="slide" data-part="Part 6 · 결말 · 데이터 분석" data-anim="alloc">
-  <h2>15억 달러는 어디로 가나</h2>
-  <div class="row mt20" style="gap:40px;align-items:center">
-    <div class="col" style="flex:1.6"><img class="fig" src="assets/fig/waterfall.svg" alt="합의금 배분 워터폴" data-hide></div>
-    <div class="col">
-      <div class="stat" data-hide><div class="big green" style="font-size:66px">≈ $<span id="perWork">3,127</span></div><div class="lbl">청구된 작품 1개당 몫 (추정)</div></div>
-      <p class="small mt20" data-hide>= 배분 가능 잔액 ÷ 청구 작품 <span class="txt" data-v="claims.claimed_works" data-fmt="int"></span>개<br>이자 제외 · 작가·출판사 분배 전 · 미청구분 재분배 가능</p>
-    </div>
-  </div>
-  <div class="src">추정 = 합의금 − 변호사 보수 − 소송비용 − 향후 비용 적립 − 대표당사자 보상금 · 수치 출처: 최종승인 판결 4, 19–22쪽 · 그래프: matplotlib</div>
-</section>
-
-<!-- 17 퍼널 -->
-<section class="slide" data-part="Part 6 · 결말 · 데이터 분석" data-anim="funnel">
-  <h2>권리자들은 어떻게 반응했나</h2>
-  <svg id="funnelSvg" width="1408" height="520" viewBox="0 0 1408 520" style="margin-top:16px"></svg>
-  <div class="src">출처: 최종승인 판결 2, 4, 6쪽 (청구율은 2026.4.16. 기준) · 법원은 "overwhelmingly favorable"이라고 평가</div>
-</section>
-
-<!-- 18 변호사 보수 -->
-<section class="slide" data-part="Part 6 · 결말 · 데이터 분석" data-anim="reveal">
-  <h2>변호사 보수: 최초 요청의 약 3분의 1만 인정</h2>
-  <div class="row mt20" style="gap:40px;align-items:center">
-    <div class="col" style="flex:1.6"><img class="fig" src="assets/fig/fees.svg" alt="변호사 보수 요청액과 인정액" data-hide></div>
-    <div class="col">
-      <ul class="points" style="margin-top:0" data-hide>
-        <li>메가펀드에서 25% 기준은 “횡재(windfall)” → <b>로드스타 방식</b> 채택</li>
-        <li>보수의 <b>10%</b>는 배분 완료 보고 때까지 유보</li>
-        <li>대표당사자 보상금 1인당 $<span class="txt" data-v="fees.service_request_each" data-fmt="int"></span> → <b>$<span class="txt" data-v="fees.service_award_each" data-fmt="int"></span></b></li>
-      </ul>
-    </div>
-  </div>
-  <div class="src">출처: 최종승인 판결 14–22쪽 · 로드스타 = 합리적 투입 시간 × 시간당 보수 · 그래프: matplotlib</div>
-</section>
-
-<!-- 19 알섭 vs 차브리아 -->
-<section class="slide" data-part="Part 7 · 메타 판결과 비교" data-anim="compare">
-  <h2>같은 결론, 다른 논리</h2>
-  <p class="lead">Kadrey v. Meta (2025.6.25.) — 작가 <span class="txt" data-v="meta_case.authors"></span>명, 메타가 내려받은 원고 책 최소 <span class="txt" data-v="meta_case.books_min"></span>권. 차브리아 판사도 Llama 학습을 공정이용으로 봤다.</p>
-  <table class="t" id="cmp" style="font-size:20px">
-    <tr><th style="width:250px">쟁점</th><th class="gold">알섭 (앤트로픽)</th><th class="blue">차브리아 (메타)</th></tr>
-    <tr><td>판단 단위</td><td>행위마다 목적을 따로 파악</td><td>수집부터 학습까지 하나로 통합</td></tr>
-    <tr><td>해적판 다운로드</td><td>범용 도서관이라는 별개 이용, 변형적 아님</td><td>최종 이용이 변형적이면 다운로드도 변형적</td></tr>
-    <tr><td>악의(bad faith)</td><td>공정이용 판단에서 배제</td><td>여러 요소 중 하나, 중요하지 않음</td></tr>
-    <tr><td>시장 희석</td><td>저작권법이 막는 경쟁이 아님</td><td>제4요소에서 고려 가능 — 단 증명 부족</td></tr>
-    <tr><td>제4요소</td><td>변형성(제1요소)에 무게</td><td>“단연코 가장 중요한 요소”</td></tr>
-  </table>
-  <div class="src">출처: 이주연(2025) Ⅲ-3·Ⅲ-4 (198–205면)</div>
-</section>
-
-<!-- 20 시장 피해 3이론 -->
-<section class="slide" data-part="Part 7 · 메타 판결과 비교" data-anim="theories">
-  <h2>차브리아 판사의 시장 피해 3이론</h2>
-  <div class="cards" style="grid-template-columns:repeat(3,1fr)">
-    <div class="card" data-hide><div class="num">①</div><h3>재출력 (regurgitation)</h3><p>모델이 원작을 그대로 내놓아 무료 대체물이 된다</p><div class="mt20"><span class="badge red stamp">기각 — Llama는 그러지 않음</span></div></div>
-    <div class="card" data-hide><div class="num">②</div><h3>라이선스 시장 훼손</h3><p>AI 학습용 라이선스 시장을 해치거나 형성을 막는다</p><div class="mt20"><span class="badge red stamp">기각 — 독점할 시장 아님</span></div></div>
-    <div class="card blue" data-hide><div class="num">③</div><h3>시장 희석 (간접 대체)</h3><p>비슷한 주제·장르의 책을 쏟아내 원작과 경쟁한다</p><div class="mt20"><span class="badge blue stamp">가장 설득력 — 그러나 증명 부족</span></div></div>
-  </div>
-  <blockquote class="q mt40" data-hide style="font-size:28px">“많은 경우 허락 없이 저작물로 생성형 AI를 학습시키는 것은 위법하고, 대가를 지급해야 할 것이다.”<span class="cite">차브리아 판사의 일반론 — 이주연(2025) 200면 요지</span></blockquote>
-  <div class="src">출처: 이주연(2025) 200–203면, 각주 134</div>
-</section>
-
-<!-- 21 순환논법 -->
-<section class="slide" data-part="Part 8 · 한계 ★ 잠재적 시장" data-anim="loops">
-  <h2>순환논법은 양쪽으로 성립한다</h2>
-  <svg id="loopSvg" width="1408" height="520" viewBox="0 0 1408 520" style="margin-top:10px"></svg>
-  <div class="src">출처: 이주연(2025) 193–194면, 206–207면 · Texaco(2d Cir. 1994), Ringgold(2d Cir. 1997)</div>
-</section>
-
-<!-- 22 가상사례 -->
-<section class="slide" data-part="Part 8 · 한계 ★ 가상사례" data-anim="cases">
-  <h2>가상사례: A회사 vs B회사</h2>
-  <p class="lead">둘 다 글쓰기 도우미 회사. 직원(→ 나중엔 LLM)이 책으로 배운다. 다른 것은 <b>책을 구하는 방식</b>뿐이다.</p>
-  <table class="t" id="abt" style="font-size:20px">
-    <tr><th style="width:200px">단계</th><th class="green">A회사 (적법)</th><th class="red">B회사 (불법)</th></tr>
-    <tr><td>#1 사내 도서관</td><td>신간을 사고, 수요가 많으면 여러 권 더 산다</td><td>장서 대부분이 불법 복제본, 인기 도서는 복제해 늘린다</td></tr>
-    <tr><td>#2 디지털 도서관</td><td>산 책을 스캔, 동시 열람은 <b>산 부수만큼</b>. 전자책은 직원 수·매출 기준 라이선스</td><td>불법 복제본 스캔 + 불법 사이트 다운로드, 동시 열람 <b>무제한</b></td></tr>
-    <tr><td>#3 LLM 개발</td><td>LLM ‘알파’ 학습 데이터를 <b>라이선스</b></td><td>LLM ‘베타’를 불법 자료로 학습, 라이선스 없음</td></tr>
-  </table>
-  <p class="lead mt30" data-hide>차브리아 논리 → 시장 희석을 증명하지 못하면 <b class="red">B회사도 정당화</b>된다. 알섭 논리 → A회사도 <b class="gold">책 한 권 값</b>이면 충분하다.</p>
-  <div class="src">출처: 이주연(2025) Ⅳ장 (209–214면)</div>
-</section>
-
-<!-- 23 영상: 책 한 권 → 무한 학습 -->
-<section class="slide" data-part="Part 8 · 한계 ★ 가상사례" data-anim="video">
-  <h2 style="margin-top:6px">책 한 권 값으로 무한 학습?</h2>
-  <video class="vid" src="assets/video/OneBookInfinite.mp4" poster="assets/video/OneBookInfinite.jpg" muted playsinline preload="auto"></video>
-  <div class="src">Manim 애니메이션 · 점의 수는 개념 설명용 예시 · 근거: 이주연(2025) 211–213면 (Texaco 사건 비교)</div>
-</section>
-
-<!-- 24 논문의 결론 -->
-<section class="slide" data-part="Part 8 · 한계 ★ 논문의 결론" data-anim="reveal">
-  <h2>논문의 결론</h2>
-  <blockquote class="q mt30" data-hide style="font-size:36px">이 사건의 본질은, 앤트로픽과 메타가 LLM 학습용 라이선스 시장의 <mark>초기 참여자</mark>가 되었어야 함에도 불법 사이트라는 ‘비정상적’ 경로로 그 역할을 피했다는 점이다.<span class="cite">이주연(2025) 213–214면 요지</span></blockquote>
-  <ol class="steps mt40">
-    <li data-hide>매우 변형적인 이용이라도 그 이용의 잠재적 시장이 <b>형성될 개연성이 높다면</b> 저작권자에게 유리하게 고려해야 한다.</li>
-    <li data-hide>그 개연성은 불법 사이트가 없는 <b>‘정상적 상황’</b>을 전제로 판단해야 한다.</li>
-    <li data-hide>판매되는 책은 이미 AI 학습을 <b>거부(opt-out)한 것과 다름없다</b>.</li>
-  </ol>
-  <div class="src">출처: 이주연(2025) 213–215면, 각주 165</div>
-</section>
-
-<!-- 25 107 vs 35의5 -->
-<section class="slide" data-part="Part 9 · 한국법과의 연계" data-anim="korea">
-  <h2>미국 제107조 ↔ 한국 제35조의5</h2>
-  <div class="row mt30" style="gap:36px">
-    <div class="col card" data-hide>
-      <h3 class="gold">미국 저작권법 제107조</h3>
-      <p>비평·논평·보도·교육·학문·연구 등을 위한 공정이용은 침해가 아니다.</p>
-      <p class="mt10">(1) 이용의 목적과 성격 (2) 저작물의 성격 (3) 이용된 부분의 양과 실질성 (4) 잠재적 시장 또는 가치에 미치는 영향</p>
-    </div>
-    <div class="col card green" data-hide>
-      <h3 class="green">한국 저작권법 제35조의5</h3>
-      <p>① …저작물의 <b>일반적인 이용 방법과 충돌하지 아니하고</b> 저작자의 <b>정당한 이익을 부당하게 해치지 아니하는</b> 경우에는 저작물을 이용할 수 있다.</p>
-      <p class="mt10">② 1. 이용의 목적 및 성격 2. 저작물의 종류 및 용도 3. 이용된 부분이 차지하는 비중과 그 중요성 4. 그 저작물의 현재 시장 또는 가치나 <span class="hl">잠재적인 시장 또는 가치</span>에 미치는 영향</p>
-    </div>
-  </div>
-  <p class="lead mt30" data-hide>4요소는 같다. 한국 조문은 제1항에 일반 요건을 따로 두고, 제4호에 <b>‘잠재적인 시장’</b>을 명시한다 → Part 8의 논쟁이 그대로 옮겨온다 <span class="small">(발표자 분석)</span>.</p>
-  <div class="src">조문: 이주연(2025) 각주 17 · 입법 모델: 같은 글 186면(각주 19)</div>
-</section>
-
-<!-- 26 한국에서의 의의 -->
-<section class="slide" data-part="Part 9 · 한국법과의 연계" data-anim="reveal">
-  <h2>한국에서 이 판결이 갖는 의미</h2>
-  <div class="cards" style="grid-template-columns:repeat(2,1fr)">
-    <div class="card" data-hide><h3>TDM 면책 규정이 없다</h3><p>한국도 미국처럼 AI 학습을 정당화할 근거가 사실상 일반 공정이용 조항(제35조의5) 하나다.</p></div>
-    <div class="card red" data-hide><h3>불법 원본은 한국에서도 불리</h3><p>웹스토리지 결정(서울중앙지법 2008카합968): 불법 파일인 줄 알고 받은 복제는 적법한 사적 복제가 아니다.</p></div>
-    <div class="card gold" data-hide><h3>‘잠재적인 시장’이 조문에 있다</h3><p>AI 학습용 라이선스 시장을 잠재적 시장으로 볼지가 국내에서도 핵심 쟁점이 될 수 있다 (발표자 분석).</p></div>
-    <div class="card blue" data-hide><h3>국내 분쟁도 시작됐다</h3><p>방송 3사가 네이버를 상대로 AI 학습에 뉴스를 무단으로 썼다며 소송을 냈다(2025.1).</p></div>
-  </div>
-  <div class="src">출처: 이주연(2025) 185–187면, 205면, 각주 20·143</div>
-</section>
-
-<!-- 27 시사점과 한계 -->
-<section class="slide" data-part="Part 10 · 시사점·결론" data-anim="reveal">
-  <h2>시사점과 한계</h2>
-  <div class="row mt20" style="gap:50px">
-    <div class="col">
-      <h3 style="font-size:26px;margin-bottom:6px" class="gold">시사점</h3>
-      <ol class="steps" style="margin-top:6px">
-        <li data-hide><b>취득 경로</b>가 핵심 — 학습이 변형적이어도 해적판은 따로 심사</li>
-        <li data-hide><b>출력</b> 문제는 미해결 — 합의도 출력 청구는 면책 안 함</li>
-        <li data-hide><b>제4요소</b>는 미정 — 라이선스 시장·시장 희석 논쟁</li>
-        <li data-hide>저작권자는 <b>불법 취득</b>을 다툴 때 강했다</li>
-      </ol>
-    </div>
-    <div class="col">
-      <h3 style="font-size:26px;margin-bottom:6px" class="red">한계</h3>
-      <ul class="points" style="margin-top:6px">
-        <li data-hide><b>1심</b> 약식판결 — 합의로 항소심 판단 없음</li>
-        <li data-hide>Claude·Llama라는 <b>특정 모델</b>·사실관계에 대한 판단</li>
-        <li data-hide>합의는 <b>선례가 아니고</b> 침해 인정도 아니다</li>
-        <li data-hide>그래도 LLM 학습과 공정이용에 대한 <b>첫 판단</b>이라는 의의</li>
-      </ul>
-    </div>
-  </div>
-  <div class="src">출처: 이주연(2025) Ⅴ장 (214–215면) · 공정이용 판결 · 최종승인 판결</div>
-</section>
-
-<!-- 28 토론 질문 -->
-<section class="slide" data-part="Part 10 · 토론" data-anim="reveal">
-  <h2>토론 질문</h2>
-  <ol class="steps mt20">
-    <li data-hide>“작가 지망생의 독서”(알섭) vs “무수한 경쟁작을 만드는 제품”(차브리아) — 누가 더 설득력 있는가?</li>
-    <li data-hide>해적판을 도서관에 두지 않고 <b>곧바로 학습에만</b> 썼다면 결론이 달라졌을까?</li>
-    <li data-hide>책 한 권 값으로 무한히 학습하는 것은 공정한가? AI 학습용 라이선스 시장은 <b>잠재적 시장</b>인가?</li>
-    <li data-hide>시장 희석을 저작권자가 실제로 증명할 수 있을까? 없다면 입증책임은 누가 져야 하나?</li>
-    <li data-hide>같은 사건이 한국 제35조의5 아래에서 다퉈진다면? TDM 면책 규정을 도입해야 할까?</li>
-  </ol>
-</section>
-
-<!-- 29 출처 -->
-<section class="slide" data-part="출처" data-anim="reveal">
-  <h2>출처</h2>
-  <ul class="points mt20" style="font-size:20px">
-    <li data-hide style="font-size:20px">이주연, 「대규모 언어모델 훈련 목적의 저작물 이용과 공정이용 문제: 앤트로픽 사건과 메타 사건을 중심으로」, 『법학논총』 제42집 제4호, 한양대학교 법학연구소(2025), 183–220면. doi:10.18018/HYLR.2025.42.4.183</li>
-    <li data-hide style="font-size:20px">Bartz v. Anthropic PBC, Order on Fair Use, No. C 24-05417 WHA, Dkt. 231 (N.D. Cal. June 23, 2025), 787 F. Supp. 3d 1007</li>
-    <li data-hide style="font-size:20px">Bartz v. Anthropic PBC, Order Granting Final Approval of Class Action Settlement; Judgment, Dkt. 680 (N.D. Cal. July 20, 2026)</li>
-    <li data-hide style="font-size:20px">U.S. Copyright Office, Fair Use Index: Bartz v. Anthropic PBC</li>
-    <li data-hide style="font-size:20px">법무법인(유) 세종, 「'AI 개발을 위한 저작물 학습과 공정이용'에 관한 최근 미국 판례 동향」(2025.7.10.)</li>
-    <li data-hide style="font-size:20px">Bloomberg Law 보도 — 집단 인증(2025.7.17.), 합의 예비승인(2025.9.25.; 논문은 9.23.로 기재)</li>
+<!-- 9 피고 -->
+<section class="slide" data-act="2">
+  <h2>피고: 앤트로픽 (Anthropic PBC)</h2>
+  <ul class="vlist" style="margin-top:50px;max-width:1150px">
+    <li data-in><span class="gold" style="font-size:34px;font-weight:900;width:200px">2021.1</span>전 OpenAI 직원들이 세운 AI 기업</li>
+    <li data-in><span class="gold" style="font-size:34px;font-weight:900;width:200px">2023.3</span>대화형 AI Claude 첫 공개, 이후 <span data-v="anthropic.claude_versions_after"></span>개 버전</li>
+    <li data-in><span class="gold" style="font-size:34px;font-weight:900;width:200px">판결 당시</span>유료 이용자·기업 고객으로 연 매출 <b><span data-v="anthropic.annual_revenue_label"></span></b></li>
   </ul>
-  <p class="small mt30" data-hide>시각화: anime.js(애니메이션) · matplotlib(데이터 그래프) · Manim(설명 영상). 추정치는 산식과 함께 “추정”으로 표시했다.</p>
+  <div class="src">출처: 공정이용 판결 1–2쪽</div>
+  <aside class="notes">앤트로픽은 Claude를 만든 회사입니다. Claude의 바탕이 되는 대규모 언어모델(LLM)을 학습시키는 데 책을 썼습니다.</aside>
+</section>
+
+<!-- 10 해적판 -->
+<section class="slide" data-act="2" data-anim="pirate">
+  <h2>해적판 700만 권 이상을 내려받았다</h2>
+  <div class="row" style="margin-top:30px;align-items:flex-start">
+    <svg id="pirateSvg" width="820" height="500" viewBox="0 0 820 500"></svg>
+    <div class="col">
+      <div class="quote" style="font-size:40px" data-in>“legal / practice / business slog”<span class="ko">책을 살 곳은 많았지만 법적·실무적·사업적 ‘수고’를 피하려 해적판을 택했다</span><span class="by">판결문이 인용한 CEO 다리오 아모데이의 말</span></div>
+      <div class="box red" style="margin-top:30px" data-step="1"><p style="margin:0;color:var(--ink)">세 곳 모두 <b>무단 복제물인 줄 알고</b> 받았다</p></div>
+    </div>
+  </div>
+  <div class="src">출처: 공정이용 판결 2–3쪽 (LibGen·PiLiMi는 “at least”)</div>
+  <aside class="notes">2021년 1~2월 Books3에서 196,640권, 2021년 6월 LibGen에서 최소 500만 권, 2022년 7월 PiLiMi에서 최소 200만 권. 앤트로픽은 이후 법적 이유로 해적판 학습에 소극적으로 바뀌었지만 파일은 계속 보관했습니다.</aside>
+</section>
+
+<!-- 11 구매·스캔 -->
+<section class="slide" data-act="2">
+  <h2>그리고 수백만 권을 사서 스캔했다<span class="sub">2024년 2월 구글 북스 스캔 담당자 영입 → 출판사 라이선스 대신 종이책 구매</span></h2>
+  <div class="flow" style="margin-top:70px">
+    <div class="box" data-in><h3>구매</h3><p>수백만 권<br>(주로 중고)</p></div>
+    <div class="arr" data-step="1">→</div>
+    <div class="box" data-step="1"><h3>제본 해체</h3><p>책등을 뜯고<br>낱장으로</p></div>
+    <div class="arr" data-step="2">→</div>
+    <div class="box" data-step="2"><h3>스캔</h3><p>검색 가능한<br>PDF로</p></div>
+    <div class="arr" data-step="3">→</div>
+    <div class="box red" data-step="3"><h3>원본 폐기</h3><p>종이책은 버렸다</p></div>
+  </div>
+  <div class="src">출처: 공정이용 판결 3–4쪽, 14–15쪽</div>
+  <aside class="notes">출판사에 AI 학습 라이선스를 문의하기도 했지만 협상을 이어가지 않았습니다. 종이 원본을 폐기했다는 점이 나중에 ‘형식만 바꿨다’는 판단의 근거가 됩니다.</aside>
+</section>
+
+<!-- 12 영상: 학습 복제 -->
+<section class="slide" data-act="2" data-anim="video">
+  <h2 style="font-size:44px">학습 과정에서 일어나는 복제</h2>
+  <video class="vid" style="width:1200px;height:675px" src="assets/video/TrainingCopies.mp4" poster="assets/video/TrainingCopies.jpg" muted playsinline preload="auto"></video>
+  <div class="src">출처: 공정이용 판결 6–7, 11–12쪽 · Manim 애니메이션 · 토큰 번호는 설명용 예시</div>
+  <aside class="notes">학습에 고른 책은 네 단계로 복제됩니다. 도서관에서 작업 사본, 정제본, 토큰화, 그리고 모델 안의 ‘암기’. 법원은 모델이 작품을 거의 그대로 암기했다는 원고 주장까지 받아들인 채 판단했습니다. 다만 필터 덕분에 침해 결과물이 사용자에게 간 기록은 없습니다.</aside>
+</section>
+
+<!-- 13 도서관 -->
+<section class="slide" data-act="2" data-anim="library">
+  <h2>“세상의 모든 책을, 영원히”</h2>
+  <div class="row" style="margin-top:36px;align-items:flex-start">
+    <svg id="libSvg" width="770" height="440" viewBox="0 0 770 440"></svg>
+    <div class="col">
+      <p class="note" data-in>1칸 = 2,500권 · 2,800칸 = 700만 권</p>
+      <div class="quote" style="font-size:40px;margin-top:26px" data-in>“store everything forever”<span class="ko">책을 지울 이유가 없다 — 앤트로픽 내부 방침</span></div>
+      <div class="box red" style="margin-top:30px" data-step="1"><p style="margin:0;color:var(--ink)">학습에 쓰지 않기로 한 책도 <b>지우지 않았다</b></p></div>
+    </div>
+  </div>
+  <div class="src">출처: 공정이용 판결 1, 5, 7쪽</div>
+  <aside class="notes">해적판과 스캔본은 모두 ‘중앙 도서관’에 들어갔습니다. 학습에는 그중 일부만 골라 썼고, 쓰지 않는 책도 계속 보관했습니다. 이 사실이 해적판 판단의 핵심 근거가 됩니다.</aside>
+</section>
+
+<!-- 14 청구 -->
+<section class="slide" data-act="3">
+  <h2>작가들은 ‘입력’만 문제 삼았다<span class="sub">2024년 8월, 같은 처지의 작가 전체를 대표해 집단소송</span></h2>
+  <table class="claims">
+    <tr data-in><td>해적판 도서관 구축과 학습용 복제 → <b>복제권(§106(1)) 침해</b></td><td style="width:260px"><span class="pill red">주장</span></td></tr>
+    <tr data-in><td>종이책을 디지털로 바꾼 형식 변환</td><td><span class="pill red">주장</span></td></tr>
+    <tr data-step="1"><td>2차적저작물작성권(§106(2)) 침해</td><td><span class="pill" style="color:var(--ink-3)">주장 안 함</span></td></tr>
+    <tr data-step="1"><td>Claude의 출력물이 작품을 베꼈다</td><td><span class="pill" style="color:var(--ink-3)">주장 안 함</span></td></tr>
+  </table>
+  <p class="body" style="margin-top:36px" data-step="2">제안한 집단: ⑴ 해적판으로 받은 책(학습 여부 무관) ⑵ 구매·스캔해 학습에 쓴 책</p>
+  <div class="src">출처: 공정이용 판결 8–9, 11쪽, 17쪽 각주 4</div>
+  <aside class="notes">원고들은 2차적저작물작성권 침해는 주장하지 않는다고 명시했습니다. 출력 침해도 주장하지 않았습니다. 그래서 법원은 “출력이 침해라면 다른 사건”이라고 말합니다.</aside>
+</section>
+
+<!-- 15 앤트로픽 -->
+<section class="slide" data-act="3">
+  <h2>앤트로픽의 방어: “모두 하나의 이용”</h2>
+  <div class="quote" style="margin-top:46px" data-in>“모든 복제는 LLM 학습이라는 하나의 목적을 위한 것이고, 학습은 변형적이므로 해적판 다운로드도 정당화된다.”<span class="by">앤트로픽 주장 요지</span></div>
+  <div class="grid2" style="margin-top:44px">
+    <div class="box gold" data-step="1"><h3>먼저 공정이용부터</h3><p>집단 인증보다 먼저 공정이용 약식판결을 구했고, 법원이 허가했다</p></div>
+    <div class="box" data-step="1"><h3>입증책임은 앤트로픽</h3><p>공정이용은 항변이라 앤트로픽이 증명해야 한다</p></div>
+  </div>
+  <div class="src">출처: 공정이용 판결 8, 11쪽 · 이주연(2025) 각주 75</div>
+  <aside class="notes">앤트로픽은 소장 각하 신청 대신, 공정이용 하나로 승부를 보려고 약식판결을 먼저 구했습니다. 핵심 논리는 ‘하나의 이용’입니다. 판사가 이 논리를 어떻게 다뤘는지가 다음 파트입니다.</aside>
+</section>
+
+<!-- 16 분할 -->
+<section class="slide" data-act="4" data-anim="split">
+  <h2>판사는 ‘하나의 이용’을 셋으로 나눴다</h2>
+  <svg id="splitSvg" width="1408" height="400" viewBox="0 0 1408 400" style="margin-top:36px"></svg>
+  <p class="body" style="margin-top:20px" data-step="2">근거: <i>Warhol v. Goldsmith</i>(2023) — 주관적 의도가 아니라 <b>실제로 무엇을 했는지</b>를 객관적으로 본다</p>
+  <div class="src">출처: 공정이용 판결 10–11, 19–20쪽 · 윌리엄 알섭 판사</div>
+  <aside class="notes">알섭 판사는 작가 측 주장처럼 도서관 구축과 학습을 별개의 이용으로 봤습니다. 같은 사본이라도 여러 방식으로 쓰일 수 있으니 이용마다 따로 판단해야 한다는 것이 연방대법원 Warhol 판결의 취지입니다.</aside>
+</section>
+
+<!-- 17 학습 -->
+<section class="slide" data-act="4" data-anim="verdict" data-verdicts="g,r,g,g" id="v1">
+  <h2>① 학습용 사본 → 공정이용</h2>
+  <div class="row" style="margin-top:16px;align-items:flex-start;gap:24px">
+    <svg class="scale" width="820" height="520" viewBox="0 0 900 520"></svg>
+    <div class="col">
+      <ul class="vlist">
+        <li data-step="1"><span class="d g">1</span>새 글을 만드는 학습 — ‘매우 변형적’</li>
+        <li data-step="2"><span class="d r">2</span>표현적 가치 때문에 고른 책</li>
+        <li data-step="3"><span class="d g">3</span>책 전체 복제, 그러나 ‘합리적으로 필요’</li>
+        <li data-step="4"><span class="d g">4</span>원작 판매를 대체하지 않는다</li>
+      </ul>
+      <div class="pill green" style="margin-top:26px;font-size:30px" data-step="5">공정이용</div>
+    </div>
+  </div>
+  <div class="src">출처: 공정이용 판결 11–14, 24–29쪽 · “among the most transformative many of us will see in our lifetimes”(30쪽)</div>
+  <aside class="notes">작가 지망생이 책을 읽고 배우는 것에 빗댔습니다. 읽고 기억할 때마다 돈을 내라는 것은 상상할 수 없고, 대가는 책을 처음 손에 넣을 때 낸다는 것입니다. ‘경쟁 작품이 늘어난다’는 주장은 아이들에게 글쓰기를 가르치는 것과 같다며 배척했고, AI 학습용 라이선스 시장도 저작권법이 보장하는 시장이 아니라고 봤습니다. 이 판단은 책을 어디서 구했는지로 나누지 않았습니다.</aside>
+</section>
+
+<!-- 18 구매·스캔 -->
+<section class="slide" data-act="4" data-anim="verdict" data-verdicts="g,r,g,n" id="v2">
+  <h2>② 구매본 스캔 → 공정이용</h2>
+  <div class="row" style="margin-top:16px;align-items:flex-start;gap:24px">
+    <svg class="scale" width="820" height="520" viewBox="0 0 900 520"></svg>
+    <div class="col">
+      <ul class="vlist">
+        <li data-step="1"><span class="d g">1</span>공간 절약·검색을 위한 형식 변환</li>
+        <li data-step="2"><span class="d r">2</span>표현적 작품</li>
+        <li data-step="3"><span class="d g">3</span>원본 폐기, 늘어난 복제본 없음</li>
+        <li data-step="4"><span class="d n">4</span>외부 배포 없음 → 중립</li>
+      </ul>
+      <div class="pill green" style="margin-top:26px;font-size:30px" data-step="5">공정이용 (형식만 바꿈)</div>
+    </div>
+  </div>
+  <div class="src">출처: 공정이용 판결 14–18, 27, 29쪽</div>
+  <aside class="notes">정당하게 산 책은 최초판매원칙에 따라 처분할 수 있습니다. 법원은 이것이 ‘학습의 일부라서’가 아니라 저장 공간 절약과 검색을 위한 형식 변환이라는, 앤트로픽 주장보다 좁은 이유로 공정이용이라고 했습니다.</aside>
+</section>
+
+<!-- 19 해적판 -->
+<section class="slide" data-act="4" data-anim="verdict" data-verdicts="r,r,r,r" id="v3">
+  <h2>③ 해적판 도서관 → 공정이용 아님</h2>
+  <div class="row" style="margin-top:16px;align-items:flex-start;gap:24px">
+    <svg class="scale" width="820" height="520" viewBox="0 0 900 520"></svg>
+    <div class="col">
+      <ul class="vlist">
+        <li data-step="1"><span class="d r">1</span>목적은 ‘범용 도서관’, 학습은 그중 하나</li>
+        <li data-step="2"><span class="d r">2</span>표현적 작품</li>
+        <li data-step="3"><span class="d r">3</span>수백만 권 전부, 쓸 일 없어도 보관</li>
+        <li data-step="4"><span class="d r">4</span>살 수 있던 책을 1:1로 대체</li>
+      </ul>
+      <div class="quote" style="font-size:30px;margin-top:22px" data-step="5">“There is no carveout … for AI companies.”<span class="ko" style="font-size:24px">저작권법에 AI 기업을 위한 예외는 없다 (14쪽)</span></div>
+    </div>
+  </div>
+  <div class="src">출처: 공정이용 판결 14, 18–24, 27, 29–31쪽</div>
+  <aside class="notes">학습에 썼는지와 무관하게, 살 수 있던 책을 훔쳐 ‘영원히’ 쌓아 둔 범용 도서관 자체가 별개의 이용이라고 봤습니다. 앤트로픽 측이 구두변론에서 “연구 목적이라며 아무 교과서나 가져가면 학술 출판 시장이 무너진다”고 한 말을 법원이 그대로 인용했습니다. 해적판을 곧바로 학습에 쓰고 지웠더라도 ‘본질적으로 침해’라는 언급도 있지만, 실제 판단 근거는 범용 도서관이었습니다. 나중에 같은 책을 사도 책임은 사라지지 않습니다.</aside>
+</section>
+
+<!-- 20 판정표 -->
+<section class="slide" data-act="4" data-anim="board">
+  <h2>판결 한 장 요약</h2>
+  <table class="board">
+    <tr><th>이용</th><th>① 목적</th><th>② 성격</th><th>③ 양</th><th>④ 시장</th><th>결론</th></tr>
+    <tr><td>학습용 사본</td><td data-c="green">+</td><td data-c="red">−</td><td data-c="green">+</td><td data-c="green">+</td><td class="v" data-c="green">공정이용</td></tr>
+    <tr><td>구매본 스캔</td><td data-c="green">+</td><td data-c="red">−</td><td data-c="green">+</td><td data-c="gold">·</td><td class="v" data-c="green">공정이용</td></tr>
+    <tr><td>해적판 도서관</td><td data-c="red">−</td><td data-c="red">−</td><td data-c="red">−</td><td data-c="red">−</td><td class="v" data-c="red">공정이용 아님</td></tr>
+  </table>
+  <div class="box" style="margin-top:30px" data-step="1"><p style="margin:0;color:var(--ink)"><b>결과</b>: 학습·스캔은 앤트로픽 승소 · 해적판은 <b>손해배상 재판으로</b>(침해 확정이 아님) · 학습 외 용도의 사본은 판단 보류</p></div>
+  <div class="src">출처: 공정이용 판결 30–32쪽 · 미국 저작권청 Fair Use Index</div>
+  <aside class="notes">법원은 학습 부분을 판단할 때 사실관계를 원고에게 유리하게 가정했습니다. 그런데도 공정이용을 인정했다는 점이 이 판결의 무게입니다.</aside>
+</section>
+
+<!-- 21 영상: 책의 여정 -->
+<section class="slide" data-act="4" data-anim="video">
+  <h2 style="font-size:44px">같은 책, 다른 판단</h2>
+  <video class="vid" style="width:1200px;height:675px" src="assets/video/BookJourney.mp4" poster="assets/video/BookJourney.jpg" muted playsinline preload="auto"></video>
+  <div class="src">Manim 애니메이션 · 공정이용 판결(2025.6.23.) 기준</div>
+  <aside class="notes">지금까지의 판단을 한 장면으로 정리한 영상입니다. 책이 어디서 왔고 어디에 쓰였는지에 따라 결론이 달라졌습니다.</aside>
+</section>
+
+<!-- 22 타임라인 -->
+<section class="slide" data-act="5" data-anim="timeline">
+  <h2>판결에서 합의까지</h2>
+  <svg id="tlSvg" width="1408" height="420" viewBox="0 0 1408 420" style="margin-top:30px"></svg>
+  <div class="box gold" data-step="1"><p style="margin:0;color:var(--ink)">공정이용 판결 뒤 <b>해적판 부분만 재판으로 남았고</b>, 재판 전에 합의했다. 최종승인은 새 판사가 맡았다.</p></div>
+  <div class="src">출처: 공정이용·최종승인 판결 · Bloomberg Law(집단 인증, 예비승인) · Authors Alliance·Wikipedia(판사 재배정)</div>
+  <aside class="notes">공정이용 판결 뒤 해적판 부분만 재판으로 남았습니다. 합의 당시 앤트로픽은 집단 인증에 불복해 항소법원에 항고를 신청한 상태였습니다. 알섭 판사는 2025년 12월 31일 재판 업무에서 물러났고(inactive senior status), 남은 사건이 무작위로 재배정되어 마르티네스-올긴 판사가 최종승인을 했습니다.</aside>
+</section>
+
+<!-- 23 집단 인증 -->
+<section class="slide" data-act="5">
+  <h2>집단은 ‘해적판 책’의 권리자로 좁혀졌다<span class="sub">2025년 7월 17일 집단 인증</span></h2>
+  <div class="grid4">
+    <div class="box green" data-in><h3>LibGen</h3><p>포함</p></div>
+    <div class="box green" data-in><h3>PiLiMi</h3><p>포함</p></div>
+    <div class="box" data-in style="opacity:.6"><h3>Books3</h3><p>제외 — 메타데이터가 부족해 작품·저자 특정이 어려움</p></div>
+    <div class="box" data-in style="opacity:.6"><h3>구매·스캔본</h3><p>제외 — 공정이용으로 판단된 부분</p></div>
+  </div>
+  <p class="body" style="margin-top:40px" data-step="1">조건: ISBN·ASIN이 있고 미국 저작권청에 제때 등록된 책 → 최종 <b><span data-v="settlement.works_list" data-fmt="int"></span>개 작품</b></p>
+  <div class="src">출처: 최종승인 판결 3, 10쪽 · Bloomberg Law(2025.7.17.)</div>
+  <aside class="notes">LibGen과 PiLiMi는 서지 메타데이터 목록이 있어 작품을 특정할 수 있었습니다. 저작권청 등록 조건은 법정손해배상을 청구하기 위한 것입니다.</aside>
+</section>
+
+<!-- 24 노출액 -->
+<section class="slide" data-act="5">
+  <h2>왜 합의했나: 지면 0원, 고의면 수백억 달러</h2>
+  <div class="row" style="margin-top:20px">
+    <img class="fig" src="assets/fig/exposure.svg" alt="법정손해배상 노출액과 합의금 비교" style="width:900px" data-in>
+    <div class="col">
+      <div class="box gold" data-step="1"><h3>합의금의 위치</h3><p>작품당 약 $3,000 = 일반 침해 최저액 $750의 4배</p></div>
+    </div>
+  </div>
+  <div class="src">단순 산술(작품 수 × 작품당 법정손해배상), 판결문의 추산 아님 · 최종승인 판결 4, 8, 11쪽 · 그래프: matplotlib</div>
+  <aside class="notes">원고는 재판에서 지면 한 푼도 못 받고, 앤트로픽은 48만여 작품에 고의 침해가 인정되면 작품당 최대 15만 달러를 마주할 수 있었습니다. 양쪽 모두 위험이 컸기 때문에 합의가 성립했습니다.</aside>
+</section>
+
+<!-- 25 합의 내용 -->
+<section class="slide" data-act="5">
+  <h2>합의 내용</h2>
+  <div class="grid4">
+    <div class="stat" data-in><div class="n gold"><span class="count" data-v="settlement.fund" data-fmt="usdB"></span></div><div class="l">합의금</div></div>
+    <div class="stat" data-in><div class="n"><span class="count" data-v="settlement.works_list" data-fmt="int"></span></div><div class="l">대상 작품</div></div>
+    <div class="stat" data-in><div class="n">≈ <span class="count" data-v="settlement.per_work_approx" data-fmt="usd0"></span></div><div class="l">작품당 (공제 전)</div></div>
+    <div class="stat" data-in><div class="n red">파기</div><div class="l">LibGen·PiLiMi 파일과 그 사본</div></div>
+  </div>
+  <div class="grid3" style="margin-top:56px">
+    <div class="chip" style="color:var(--green);background:var(--green-t)" data-step="1">면책: 2025.8.25. 이전의 입력 단계 행위</div>
+    <div class="chip" style="color:var(--red);background:var(--red-t)" data-step="1">면책 안 됨: 출력물에 관한 청구</div>
+    <div class="chip" style="color:var(--red);background:var(--red-t)" data-step="1">면책 안 됨: 2025.8.25. 이후 행위</div>
+  </div>
+  <div class="src">출처: 최종승인 판결 4, 7, 11, 17쪽 · 합의는 침해 인정이 아니다</div>
+  <aside class="notes">앤트로픽은 합의문에서 LibGen과 PiLiMi 데이터가 상용 출시된 모델의 학습에 쓰이지 않았다고 진술했습니다. 합의는 과거의 입력 단계만 정리했고, 출력 문제와 이후 행위는 열어 두었습니다.</aside>
+</section>
+
+<!-- 26 워터폴 -->
+<section class="slide" data-act="5">
+  <h2>15억 달러는 어디로 가나</h2>
+  <div class="row" style="margin-top:20px">
+    <img class="fig" src="assets/fig/waterfall.svg" alt="합의금 배분 워터폴" style="width:900px" data-in>
+    <div class="col">
+      <div class="stat" data-step="1"><div class="n green">≈ $<span id="perWork">3,127</span></div><div class="l">청구된 작품 하나당 몫 (추정)</div></div>
+      <p class="note" style="margin-top:18px" data-step="1">작가·출판사 몫 ÷ 청구 작품 <span data-v="claims.claimed_works" data-fmt="int"></span>개 · 이자 제외 · 작가와 출판사가 다시 나눔</p>
+    </div>
+  </div>
+  <div class="src">추정 = 합의금 − 변호사 보수 − 비용·적립 등 · 최종승인 판결 4, 19–22쪽 · 그래프: matplotlib</div>
+  <aside class="notes">변호사 보수는 약 1억 156만 달러, 소송비용과 향후 비용 적립, 대표당사자 보상금을 빼면 약 13억 8천만 달러가 남습니다. 이를 실제 청구된 작품 수로 나누면 작품당 약 3,127달러입니다. 이 몫은 계약에 따라 작가와 출판사가 다시 나눕니다.</aside>
+</section>
+
+<!-- 27 반응 -->
+<section class="slide" data-act="5" data-anim="donut">
+  <h2>작가들은 받아들였다<span class="sub">2026년 7월 20일 최종승인 (마르티네스-올긴 판사)</span></h2>
+  <div class="row" style="margin-top:30px;gap:70px">
+    <svg id="donutSvg" width="400" height="400" viewBox="0 0 400 400"></svg>
+    <div class="col">
+      <ul class="vlist">
+        <li data-in><b class="num" style="width:230px"><span data-v="claims.claimed_works" data-fmt="int"></span></b>개 작품이 배상 청구</li>
+        <li data-in><b class="num" style="width:230px"><span data-v="claims.optouts" data-fmt="int"></span>건</b>제외신청(opt-out)</li>
+        <li data-in><b class="num" style="width:230px"><span data-v="claims.objections" data-fmt="int"></span>건</b>이의 → 모두 기각</li>
+      </ul>
+      <p class="body" style="margin-top:26px" data-step="1">변호사 보수: 요청 $187.5M → 인정 약 $101.6M(합의금의 약 6.8%)</p>
+    </div>
+  </div>
+  <div class="src">출처: 최종승인 판결 4, 6, 14–18쪽 (청구율 2026.4.16. 기준)</div>
+  <aside class="notes">법원은 반응이 “압도적으로 우호적(overwhelmingly favorable)”이라고 평가했습니다. 변호사 보수는 실제 투입 시간에 비해 지나치다며 크게 줄였습니다. 알섭 판사도 물러나기 전 2025년 12월 메모로 보수 요청을 비판했습니다.</aside>
+</section>
+
+<!-- 28 메타 비교 -->
+<section class="slide" data-act="6">
+  <h2>같은 법원, 다른 판사<span class="sub">Kadrey v. Meta (2025.6.25.) — 결론은 같았다: 학습은 공정이용</span></h2>
+  <div class="face">
+    <div></div>
+    <div class="h" style="background:var(--gold-t);color:var(--gold)">알섭 · 앤트로픽</div>
+    <div class="h" style="background:var(--blue-t);color:var(--blue)">차브리아 · 메타</div>
+    <div class="r" data-step="1">판단 단위</div><div class="c" data-step="1">행위마다 따로</div><div class="c" data-step="1">수집부터 학습까지 하나로</div>
+    <div class="r" data-step="2">해적판 다운로드</div><div class="c" data-step="2">별개의 이용, 공정이용 아님</div><div class="c" data-step="2">목적이 학습이면 변형적</div>
+    <div class="r" data-step="3">시장 희석</div><div class="c" data-step="3">저작권법이 막을 경쟁 아님</div><div class="c" data-step="3">고려 가능 — 원고 증명 부족</div>
+  </div>
+  <div class="src">출처: 이주연(2025) Ⅲ-3·Ⅲ-4, 198–205면</div>
+  <aside class="notes">메타 사건은 작가 13명이 원고였고, 메타는 원고 책 최소 666권을 불법 도서관에서 토렌트로 받았습니다. 차브리아 판사는 이 원고들이 시장 피해를 입증하지 못한 결과일 뿐이라며 판결의 의미를 좁혔고, 많은 경우 허락 없는 학습은 위법이고 대가를 내야 할 것이라고 말했습니다.</aside>
+</section>
+
+<!-- 29 정리 -->
+<section class="slide" data-act="6">
+  <h2>정리</h2>
+  <div class="stack" style="margin-top:36px">
+    <div class="box green rowbox" data-in><div class="k" style="background:var(--green)">1</div><div class="t" style="font-size:32px">책을 AI 학습에 쓴 것은 매우 변형적인 공정이용으로 인정됐다</div></div>
+    <div class="box red rowbox" data-in><div class="k" style="background:var(--red)">2</div><div class="t" style="font-size:32px">책임을 가른 것은 책을 어떻게 구했는가였다</div></div>
+    <div class="box gold rowbox" data-in><div class="k" style="background:var(--gold)">3</div><div class="t" style="font-size:32px">그 결과 재판 대신 15억 달러 합의와 해적판 파기</div></div>
+  </div>
+  <div class="grid3" style="margin-top:34px">
+    <div class="chip" style="color:var(--ink-2);border-color:var(--rule)" data-step="1">남은 문제: AI 학습용 라이선스 시장은 ‘잠재적 시장’인가 (이주연, 2025)</div>
+    <div class="chip" style="color:var(--ink-2);border-color:var(--rule)" data-step="1">출력 문제는 판단되지 않았다</div>
+    <div class="chip" style="color:var(--ink-2);border-color:var(--rule)" data-step="1">1심 약식판결 + 합의 → 선례로서 한계</div>
+  </div>
+  <div class="src">출처: 공정이용 판결 · 최종승인 판결 · 이주연(2025) 205–209, 214–215면</div>
+  <aside class="notes">논문은 두 판사 모두 ‘개발될 개연성이 있는 시장’까지 포함하는 판례 기준(Texaco)을 충분히 심리하지 않았다고 비판합니다. 판결은 1심이고 합의로 끝나 항소심 판단이 없습니다.</aside>
+</section>
+
+<!-- 30 출처 -->
+<section class="slide" data-dense>
+  <h2>출처</h2>
+  <ul class="vlist" style="margin-top:30px">
+    <li style="font-size:24px">Bartz v. Anthropic PBC, Order on Fair Use, No. C 24-05417 WHA, Dkt. 231 (N.D. Cal. June 23, 2025), 787 F. Supp. 3d 1007</li>
+    <li style="font-size:24px">Bartz v. Anthropic PBC, Order Granting Final Approval of Class Action Settlement; Judgment, Dkt. 680 (N.D. Cal. July 20, 2026)</li>
+    <li style="font-size:24px">이주연, 「대규모 언어모델 훈련 목적의 저작물 이용과 공정이용 문제」, 『법학논총』 42(4), 한양대학교 법학연구소(2025), 183–220면</li>
+    <li style="font-size:24px">U.S. Copyright Office, Fair Use Index · YouTube 고객센터, “Fair use on YouTube”(4요소 설명 문안)</li>
+    <li style="font-size:24px">Bloomberg Law(집단 인증 2025.7.17., 예비승인 2025.9.25.) · Authors Alliance(2026.1.12.) · Wikipedia “William Alsup” · Netflix Tudum</li>
+  </ul>
+  <p class="note" style="margin-top:24px">시각화: anime.js · matplotlib · Manim. 추정치는 산식과 함께 “추정”으로 표시했다.</p>
+  <aside class="notes">수치는 모두 판결문 원문에서 가져왔고, 판결문에 없는 진행 사항은 보도와 공개 자료로 교차 확인했습니다.</aside>
 </section>
 
 <div id="pager"></div>
-<div id="progress"></div>
+<div id="bar"></div>
 </div></div>
+<div id="notes"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
 <script src="data/facts.js"></script>

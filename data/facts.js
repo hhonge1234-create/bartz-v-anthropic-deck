@@ -3,7 +3,8 @@ window.FACTS = {
   "FU": "Bartz v. Anthropic PBC, Order on Fair Use, Dkt. 231 (N.D. Cal. June 23, 2025)",
   "FA": "Bartz v. Anthropic PBC, Order Granting Final Approval of Class Action Settlement, Dkt. 680 (N.D. Cal. July 20, 2026)",
   "LEE": "이주연, 「대규모 언어모델 훈련 목적의 저작물 이용과 공정이용 문제」, 법학논총 42(4), 2025",
-  "BL": "Bloomberg Law 보도 (집단 인증일 2025.7.17., 예비승인 2025.9.25.)"
+  "BL": "Bloomberg Law 보도 (집단 인증일 2025.7.17., 예비승인 2025.9.25.)",
+  "WEB": "Authors Alliance(2026.1.12.) 판사 재배정 · Wikipedia 'William Alsup' (inactive senior status 2025-12-31)"
  },
  "pirated": {
   "books3": {
@@ -36,6 +37,10 @@ window.FACTS = {
   },
   "annual_revenue_label": {
    "value": "10억 달러 이상",
+   "src": "FU p.2"
+  },
+  "claude_versions_after": {
+   "value": 7,
    "src": "FU p.2"
   }
  },
@@ -212,6 +217,10 @@ window.FACTS = {
   "final_approval": {
    "value": "2026-07-20",
    "src": "FA p.23"
+  },
+  "judge_change": {
+   "value": "2025-12-31",
+   "src": "WEB"
   }
  },
  "meta_case": {
@@ -228,6 +237,10 @@ window.FACTS = {
   "us_ai_suits_label": {
    "value": "50여 건",
    "src": "LEE 각주 10 (2025년 9월 중순 기준)"
+  },
+  "meta_date": {
+   "value": "2025-06-25",
+   "src": "LEE 각주 14"
   }
  }
 };
